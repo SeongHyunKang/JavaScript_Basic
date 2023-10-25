@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-    <p style="font-family: 'Arial';"></p>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <style>
+<p style="font-family: 'sans-serif';"></p>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myVideoPractice</title>
+    <style>
         table {
             border-collapse: collapse;
             width: 50%;
@@ -13,18 +14,20 @@
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
         }
 
-        th, td {
+        th,
+        td {
             border: 2px solid #5c6bc0;
             padding: 10px;
             font-family: 'Arial', sans-serif;
             font-size: 14px;
         }
 
-        th, td {
+        th,
+        td {
             width: 100px;
-            height: 50px; 
+            height: 50px;
         }
-        
+
         tr:nth-child(odd) {
             background-color: #e8eaf6;
         }
@@ -36,7 +39,7 @@
 
         .centered video {
             display: inline-block;
-            margin-right:10px;
+            margin-right: 10px;
         }
 
         .centered iframe {
@@ -45,31 +48,41 @@
             height: 140px;
             margin-right: 10px;
         }
-        </style>
-    </head>
+    </style>
+</head>
 
-    <body>
-        <table>
-            <tr>
-                <td colspan="3"><b>.mp4 Playlist<br></td>
-            </tr>
-            <tr class="centered">
-                <td colspan="3">
-                    <video width="250" src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" autoplay controls muted></video>
-                    <video width="250" src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay controls muted></video>
-                    <video width="250" src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" autoplay controls muted></video>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="3"><b>Youtube Playlist</b></td>
-            </tr>
-            <tr>
-                <td colspan="3" class="centered">
-                    <iframe src="https://www.youtube.com/embed/1OZDaRhHHyM?si=JF4cGZ65Y3zLBxq4" frameborder="0" controls allowfullscreen></iframe>
-                    <iframe src="https://www.youtube.com/embed/h2Tzd7MiOj8?si=BMq12N5jSsnv8sE_" frameborder="0" controls allowfullscreen></iframe>
-                    <iframe src="https://www.youtube.com/embed/W4R1lmX2KXU?si=HArDJQadb5kwIhF1" frameborder="0" controls allowfullscreen></iframe>
-                </td>
-            </tr>
-        </table>
-    </body>
+<body>
+    <table>
+        <tr>
+            <td colspan="3" class="centered"><b>.mp4 Playlist<br></td>
+        </tr>
+        <tr class="centered">
+            <td colspan="3">
+                <video width="250"
+                    src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" autoplay
+                    controls muted></video>
+                <video width="250"
+                    src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" autoplay
+                    controls muted></video>
+                <video width="250"
+                    src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" autoplay
+                    controls muted></video>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="centered"><b>Youtube Playlist</b></td>
+        </tr>
+        <tr>
+            <td colspan="3" class="centered">
+                <iframe src="https://www.youtube.com/embed/1OZDaRhHHyM?si=JF4cGZ65Y3zLBxq4" frameborder="0" controls
+                    allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/h2Tzd7MiOj8?si=BMq12N5jSsnv8sE_" frameborder="0" controls
+                    allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/W4R1lmX2KXU?si=HArDJQadb5kwIhF1" frameborder="0" controls
+                    allowfullscreen></iframe>
+            </td>
+        </tr>
+    </table>
+</body>
+
 </html>
