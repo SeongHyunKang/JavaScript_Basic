@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            position: relative;
+            width: 50%;
+            height: 300px;
+            margin: 50px auto;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15)
+        }
+
+        .box{
+            position: absolute;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 14px;
+            text-align: center;
+            line-height: 120px;
+        }
+
+        .box1{
+            background-color: blue;
+            width: 100%;
+            height: 120px;
+            top: 0;
+        }
+
+        .box2{
+            background-color: limegreen;
+            width: 33.33%;
+            height: 100%;
+            right: 0;
+        }
+
+        .box3{
+            background-color: magenta;
+            width: 100%;
+            height: 120px;
+            bottom: 0;
+        }
+
+        .box4{
+            background-color: red;
+            width: 33.33%;
+            height: 60%;
+            left: 0;
+            top: 120px;
+        }
+
+        .img_box{
+            width: 33.33%;
+            height: 60%;
+            left: 33.33%;
+            top: 120px;
+            position: absolute;
+        }
+
+        .img_box img{
+            width: 100%;
+            height: 33.33%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box box1">1</div>
+        <div class="box box2">2</div>
+        <div class="box box3">3</div>
+        <div class="box box4">4</div>
+        <div class="img_box">
+            <img src="dog-puppy-on-garden-royalty-free-image-1586966191.jpg" alt="Dog Image">
+        </div>
+    </div>
+</body>
+
+</html>
