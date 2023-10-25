@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes shimmerBorder {
+    0% {
+        border-color: #f093fb;
+    }
+    25% {
+        border-color: #f5576c;
+    }
+    50% {
+        border-color: #5ee7df;
+    }
+    75% {
+        border-color: #b490ca;
+    }
+    100% {
+        border-color: #c471f5;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.div_class {
+    color: #ffffff;
+    font-size: 50px;
+    font-style: italic;
+    text-align: start;
+    text-decoration: line-through;
+    text-transform: capitalize;
+    padding: 20px;
+    border-radius: 15px;
+    border: 5px solid #f093fb;
+    animation: shimmerBorder 5s infinite;
+    box-shadow: 0px 0px 20px 5px rgba(255, 255, 255, 0.5), 0 10px 20px 0 rgba(0, 0, 0, 0.3);
+    background: linear-gradient(270deg, #f093fb, #f5576c, #5ee7df, #b490ca, #c471f5, #fa71cd);
+    background-size: 200% 200%;
+    animation: gradientShift 8s infinite;
+}
+
+#div1 {
+    background: linear-gradient(45deg, #f093fb, #f5576c);
+    margin-top: 20px;
+    animation: shimmer 8s infinite reverse;
+}
+
+#div2 {
+    background: linear-gradient(45deg, #5ee7df, #b490ca);
+    margin-top: 20px;
+    animation: shimmer 10s infinite;
+}
+
+#div3 {
+    background: linear-gradient(45deg, #c471f5, #fa71cd);
+    margin-top: 20px;
+    animation: shimmer 12s infinite reverse;
+}
+
+.span_class {
+    display: inline-block;
+    margin: 0 10px;
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+    transition: transform 0.3s ease;
+}
+
+.span_class:hover {
+    transform: scale(1.1);
+}
+
+#div1 .span_class:nth-child(1) { animation-delay: 0.5s; }
+#div1 .span_class:nth-child(2) { animation-delay: 1s; }
+#div1 .span_class:nth-child(3) { animation-delay: 1.5s; }
+
+#div2 .span_class:nth-child(1) { animation-delay: 2s; }
+#div2 .span_class:nth-child(2) { animation-delay: 2.5s; }
+#div2 .span_class:nth-child(3) { animation-delay: 3s; }
+
+#div3 .span_class:nth-child(1) { animation-delay: 3.5s; }
+#div3 .span_class:nth-child(2) { animation-delay: 4s; }
+#div3 .span_class:nth-child(3) { animation-delay: 4.5s; }
+
+    </style>
+</head>
+
+<body>
+    <div class="div_class" id="div1">
+        <span class="span_class" id="span11">text1</span>
+        <span class="span_class" id="span12">text2</span>
+        <span class="span_class" id="span13">text3</span>
+    </div>
+
+    <div class="div_class" id="div2">
+        <span class="span_class" id="span21">text1</span>
+        <span class="span_class" id="span22">text2</span>
+        <span class="span_class" id="span23">text3</span>
+    </div>
+
+    <div class="div_class" id="div3">
+        <span class="span_class" id="span31">text1</span>
+        <span class="span_class" id="span32">text2</span>
+        <span class="span_class" id="span33">text3</span>
+    </div>
+
+</body>
+
+</html>
