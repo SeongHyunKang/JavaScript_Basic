@@ -1,18 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <button onclick="addText()">추가</button>
-    <script>
-        document.write('<h1>제목</h1>')
 
-        function addText(){
-            document.write('<h1>제목</h1>')
+<body>
+    <button onclick="addText()">add</button>
+
+    <div id="box1" onmouseover="mouseOver()" onmouseout="mouseOut()">box1</div>
+    <div class="bg-red">1</div>
+    <div id="text"></div>
+    <div class="bg-red">2</div>
+
+    <script>
+        const box1 = document.getElementByID('box1')
+        // document.write('<h1>title</h1>')
+        function mouseOut() {
+            // const box1 = document.getElementByID('box1');
+            box1.style.backgroundColor = 'red';
+            console.log('mouseOut');
+        }
+
+        function mouseOver() {
+            // const box1 = document.getElementByID('box1');
+            box1.style.backgroundColor = 'yellow';
+            console.log('mouseOver');
+        }
+
+        function addText() {
+            const textDiv = document.getElementById('text');
+            textDiv.innerText = '<h1>Hello</h1>'
+            textDiv.innerHTML = '<h1>Hello</h1>'
         }
     </script>
 </body>
+
 </html>
