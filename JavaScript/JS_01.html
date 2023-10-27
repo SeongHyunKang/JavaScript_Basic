@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // inline st
+        function myAlert() {
+            alert('world');
+        }
+    </script>
+    <!-- external style -->
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <!-- embbed style -->
+    <div onclick="myAlert()">embbed</div>
+    <div onclick="alert('world')">hello</div>
+
+    <input type="button" value="Click" onclick="myExternalAlert">
+</body>
+
+</html>

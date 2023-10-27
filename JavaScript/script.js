@@ -1,0 +1,3 @@
+function myExternalAlert(){
+    alert('world!!!!!!!!!!!');
+}
