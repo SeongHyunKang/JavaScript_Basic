@@ -7,25 +7,26 @@
     <title>Document</title>
     <script>
         function askName() {
-            let name = prompt("이름을 입력해주세요.");
+            const name = prompt('이름을 입력해주세요.');
+            if (name === null || name === '') {
+                name = prompt('이름을 입력해주세요.');
 
-            while (name === null || name.trim() === "") {
-                alert("입력해주세요");
-                name = prompt("이름을 입력해주세요.");
+                if (name !== null && name !== '') {
+                    log(name);
+                }
+            } else {
+                log(name);
             }
-
-            console.log("입력된 이름:", name);
-            alert(name + "님 안녕하세요.");
+        }
+        function log(name) {
+            console.log(name);
+            alert(`${name}님 안녕하세요`);
         }
     </script>
 </head>
 
 <body>
-
-    <body>
-        <h1>이름을 입력해주세요</h1>
-        <button onclick="askName()">이름 입력</button>
-    </body>
+    <button onclick="askName()">example01</button>
 </body>
 
 </html>
