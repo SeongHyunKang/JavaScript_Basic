@@ -40,20 +40,26 @@
     </style>
 </head>
 <body>
-    <div class="menu-container">
+    <!-- Button Event -->
+    <!-- <div class="menu-container">
         <div class="menu-item" onclick="selectMenuItem(this)">html</div>
         <div class="menu-item" onclick="selectMenuItem(this)">css</div>
         <div class="menu-item" onclick="selectMenuItem(this)">javascript</div>
+    </div> -->
+
+    <!-- On Mouse Over -->
+    <div class="menu-container">
+        <div class="menu-item" onmouseover="selectMenuItem(this)">html</div>
+        <div class="menu-item" onmouseover="selectMenuItem(this)">css</div>
+        <div class="menu-item" onmouseover="selectMenuItem(this)">javascript</div>
     </div>
     <script>
         function selectMenuItem(selectedItem) {
-            // 먼저 모든 메뉴 아이템에서 'selected' 클래스를 제거합니다.
             const menuItems = document.querySelectorAll('.menu-item');
             menuItems.forEach(item => {
                 item.classList.remove('selected');
             });
 
-            // 선택된 메뉴 아이템에 'selected' 클래스를 추가합니다.
             selectedItem.classList.add('selected');
         }
     </script>
