@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e0e0e0;
+        }
+
+        .menu-container {
+            text-align: center;
+        }
+
+        .menu-item {
+            background-color: #808080;
+            color: #fff;
+            padding: 15px 30px;
+            margin: 10px;
+            display: inline-block;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .menu-item.selected {
+            background-color: #fff;
+            color: #000;
+            border: 2px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <div class="menu-item" onclick="selectMenuItem(this)">Menu 1</div>
+        <div class="menu-item" onclick="selectMenuItem(this)">Menu 2</div>
+        <div class="menu-item" onclick="selectMenuItem(this)">Menu 3</div>
+    </div>
+    <script>
+        function selectMenuItem(selectedItem) {
+            // 먼저 모든 메뉴 아이템에서 'selected' 클래스를 제거합니다.
+            const menuItems = document.querySelectorAll('.menu-item');
+            menuItems.forEach(item => {
+                item.classList.remove('selected');
+            });
+
+            // 선택된 메뉴 아이템에 'selected' 클래스를 추가합니다.
+            selectedItem.classList.add('selected');
+        }
+    </script>
+</body>
+</html>
