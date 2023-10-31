@@ -3,9 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Text Color Changer</title>
+    <style>
+        #textContainer {
+            font-size: 2em;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 5px 15px;
+            font-size: 16px;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .blue {
+            color: blue;
+        }
+
+        .green {
+            color: green;
+        }
+    </style>
 </head>
 <body>
-    
+    <input type="text" id="textInput" placeholder="텍스트를 입력하세요">
+    <button onclick="showText()">텍스트 표시</button>
+    <div id="textContainer"></div>
+    <script>el
+        function showText() {
+            const textInput = document.getElementById('textInput').value;
+            const textContainer = document.getElementById('textContainer');
+
+            if (!textInput) {
+                alert('텍스트값을 입력해 주세요');
+                return;
+            }
+
+            textContainer.textContent = textInput;
+            createColorButtons();
+        }
+
+        function createColorButtons() {
+            const textContainer = document.getElementById('textContainer');
+            const colors = ['red', 'blue', 'green'];
+
+            colors.forEach(color => {
+                if (!document.getElementById(color + 'Button')) {
+                    const button = document.createElement('button');
+                    button.textContent = color;
+                    button.style.color = color;
+                    button.id = color + 'Button';
+                    button.onclick = function () {
+                        textContainer.style.color = color;
+                        alert(`${color} 색으로 변경됩니다.`);
+                    };
+                    document.body.appendChild(button);
+                }
+            });
+        }
+    </script>
 </body>
 </html>
