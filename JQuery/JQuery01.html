@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>회원가입 폼</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+  }
+  .form-container {
+    max-width: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin: auto;
+  }
+  .form-group {
+    margin-bottom: 15px;
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  select,
+  .hobby {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+  input[type="radio"] + label {
+    margin-right: 10px;
+  }
+  input[type="checkbox"] + label {
+    display: inline-block;
+    margin: 5px;
+    cursor: pointer;
+  }
+  input[type="checkbox"]:checked + label {
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    padding: 5px 10px;
+  }
+  button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #5cb85c;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+  }
+  button:hover, button:active {
+    background-color: #4cae4c;
+  }
+  button#cancelButton {
+    background-color: #f44336;
+  }
+  button#cancelButton:hover, button#cancelButton:active {
+    background-color: #d32f2f;
+  }
+  .error {
+    color: red;
+    margin-top: 5px;
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2 style="text-align: center;">회원가입</h2>
+
+  <form id="signupForm">
+    <div class="form-group">
+      <label for="email">아이디 (이메일 형식):</label>
+      <input type="email" id="email" placeholder="이메일을 입력하세요">
+      <div id="emailError" class="error">아이디는 이메일 형식이어야 합니다.</div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">비밀번호 (5자 이상):</label>
+      <input type="password" id="password" placeholder="비밀번호를 입력하세요">
+      <div id="passwordError" class="error">비밀번호는 5자 이상이어야 합니다.</div>
+    </div>
+
+    <div class="form-group">
+      <label>성별:</label>
+      <input type="radio" id="male" name="gender" value="male">
+      <label for="male">남자</label>
+      <input type="radio" id="female" name="gender" value="female">
+      <label for="female">여자</label>
+      <div id="genderError" class="error">성별을 선택해야 합니다.</div>
+    </div>
+
+    <div class="form-group">
+      <label for="occupation">직업:</label>
+      <select id="occupation">
+        <option value="">직업을 선택하세요</option>
+        <option value="developer">개발자</option>
+        <option value="designer">디자이너</option>
+        <option value="manager">매니저</option>
+        <option value="student">학생</option>
+      </select>
+      <div id="occupationError" class="error">직업을 선택해야 합니다.</div>
+    </div>
+
+    <div class="form-group">
+      <label>취미 (3개 이상 선택):</label>
+      <input type="checkbox" id="hobby_dev" name="hobby" value="development">
+      <label class="hobby" for="hobby_dev">개발</label>
+      <input type="checkbox" id="hobby_game" name="hobby" value="gaming">
+      <label class="hobby" for="hobby_game">게임</label>
+      <input type="checkbox" id="hobby_fishing" name="hobby" value="fishing">
+      <label class="hobby" for="hobby_fishing">낚시</label>
+      <input type="checkbox" id="hobby_sport" name="hobby" value="sports">
+      <label class="hobby" for="hobby_sport">운동</label>
+      <input type="checkbox" id="hobby_reading" name="hobby" value="reading">
+      <label class="hobby" for="hobby_reading">독서</label>
+      <input type="checkbox" id="hobby_music" name="hobby" value="music">
+      <label class="hobby" for="hobby_music">음악감상</label>
+      <div id="hobbyError" class="error">취미는 3개 이상 선택해야 합니다.</div>
+    </div>
+
+    <button type="button" id="submitBtn">회원가입</button>
+    <button type="reset" id="cancelButton">취소</button>
+  </form>
+</div>
+
+<script>
+  $(document).ready(function() {
+    // 취소 버튼 이벤트: 마우스오버 시 색상 변경
+    $('#cancelButton').mouseover(function() {
+      $(this).css('background-color', '#f35d5d');
+    }).mouseout(function() {
+      $(this).css('background-color', '#f44336');
+    });
+
+    // 회원가입 검증 로직
+    $('#submitBtn').click(function() {
+      var isValid = true;
+
+      // 이메일 검사
+      var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+      if (!emailPattern.test($('#email').val())) {
+        $('#emailError').show();
+        isValid = false;
+      } else {
+        $('#emailError').hide();
+      }
+
+      // 비밀번호 검사
+      if ($('#password').val().length < 5) {
+        $('#passwordError').show();
+        isValid = false;
+      } else {
+        $('#passwordError').hide();
+      }
+
+      // 성별 검사
+      if (!$('input[name="gender"]:checked').val()) {
+        $('#genderError').show();
+        isValid = false;
+      } else {
+        $('#genderError').hide();
+      }
+
+      // 직업 검사
+      if ($('#occupation').val() === '') {
+        $('#occupationError').show();
+        isValid = false;
+      } else {
+        $('#occupationError').hide();
+      }
+
+      // 취미 검사
+      if ($('input[name="hobby"]:checked').length < 3) {
+        $('#hobbyError').show();
+        isValid = false;
+      } else {
+        $('#hobbyError').hide();
+      }
+
+      // 폼 조건을 모두 만족하면 완료 알림
+      if (isValid) {
+        alert('회원가입이 완료되었습니다.');
+        // 서버로 폼 데이터를 제출하는 로직을 여기에 추가하세요.
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
