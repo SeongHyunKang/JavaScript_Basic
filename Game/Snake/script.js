@@ -13,6 +13,7 @@ $(document).ready(function() {
     let timerInterval;
     let timeSurvived = 0;
     let gameStarted = false;
+    let isGameOver = false;
 
     function placeFood() {
         let foodPlaced = false;
@@ -44,6 +45,10 @@ $(document).ready(function() {
     }
 
     function moveSnake() {
+        if (isGameOver) {
+            return; // Stop the snake from moving if the game is over
+        }
+    
         const newHead = { top: snake[0].top + (direction.y * snakeSize), left: snake[0].left + (direction.x * snakeSize) };
         snake.unshift(newHead);
         if (newHead.top === foodPosition.top && newHead.left === foodPosition.left) {
@@ -53,14 +58,16 @@ $(document).ready(function() {
             snake.pop();
         }
         if (checkCollision(newHead)) {
-            resetGame();
+            clearInterval(gameInterval);
+            clearInterval(timerInterval);
+            showGameOverModal();
+            return;
         } else {
             drawSnake();
             $('#score').text(score);
         }
         updateDirection();
     }
-
     function checkCollision(head) {
         if (head.left < 0 || head.top < 0 || head.left >= gameWidth || head.top >= gameHeight) {
             return true;
@@ -77,10 +84,6 @@ $(document).ready(function() {
         clearInterval(gameInterval);
         clearInterval(timerInterval);
 
-        if (gameStarted) {
-            alert('Game over! Your final score is: ' + score);
-        }
-
         snake = [{ top: Math.floor((gameHeight - snakeSize) / 2), left: Math.floor((gameWidth - snakeSize) / 2) }];
         direction = { x: 0, y: 0 };
         newDirection = null;
@@ -88,10 +91,23 @@ $(document).ready(function() {
         score = 0;
         timeSurvived = 0;
         gameStarted = false;
+        isGameOver = false;
+
         $('#score').text(score);
         $('#time').text(timeSurvived);
         placeFood();
         drawSnake();
+    }
+
+    function showGameOverModal() {
+        $('#final-score').text(score);
+        $('#game-over-modal').fadeIn();
+        isGameOver = true;
+    }
+
+    function hideGameOverModal() {
+        $('#game-over-modal').fadeOut();
+        isGameOver = false;
     }
 
     function updateDirection() {
@@ -103,6 +119,10 @@ $(document).ready(function() {
     }
 
     $(document).keydown(function(e) {
+        if (isGameOver) {
+            return;
+        }
+
         if (!gameStarted) {
             gameStarted = true;
             gameInterval = setInterval(moveSnake, 100);
@@ -134,6 +154,21 @@ $(document).ready(function() {
         }
 
         e.preventDefault();
+    });
+
+    $('.close-button').click(function() {
+        hideGameOverModal();
+    });
+
+    $('#restart-button').click(function() {
+        hideGameOverModal();
+        resetGame();
+        gameStarted = true;
+        gameInterval = setInterval(moveSnake, 100);
+        timerInterval = setInterval(function() {
+            timeSurvived++;
+            $('#time').text(timeSurvived);
+        }, 1000);
     });
 
     resetGame();
