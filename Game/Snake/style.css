@@ -78,8 +78,8 @@ body {
 
 #food {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 23px;
+    height: 23px;
     background-image: url('apple.png');
     background-size: cover;
     z-index: 1;
