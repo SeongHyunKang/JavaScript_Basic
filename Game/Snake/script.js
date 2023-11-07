@@ -76,6 +76,11 @@ $(document).ready(function() {
     function resetGame() {
         clearInterval(gameInterval);
         clearInterval(timerInterval);
+
+        if (gameStarted) {
+            alert('Game over! Your final score is: ' + score);
+        }
+
         snake = [{ top: Math.floor((gameHeight - snakeSize) / 2), left: Math.floor((gameWidth - snakeSize) / 2) }];
         direction = { x: 0, y: 0 };
         newDirection = null;
