@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            position: relative;
+            background-color: lightgreen;
+        }
+        #hello{
+            position: absolute
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">div1</div>
+    <div id="hello">hello</div>
+    <button id="stopButton">stop</button>
+
+    <script>
+        $('#stopButton').click(function (){
+            $('#hello').stop();
+        });
+
+        $('#hello').animate(
+            {right:'0px'},
+            10000,
+            'linear'
+            );
+
+        $('#div1').animate({left: '100px'});
+        $('#div1').animate({
+            top: '100px',
+            width: '50px',
+            height: '50px'
+        }, function(){
+            $('#div1').css('backgroundColor', 'red')
+        });
+
+        $('#div1').animate({left: '-=50px'});
+
+        $('#div1').slideUp(3000);
+        $('#div1').slideDown(3000);
+
+        $('#div1').fadeOut(3000);
+        $('#div1').fadeIn(3000);
+
+        $('#div1').hide(3000);
+        $('#div1').show(3000);
+    </script>
+</body>
+</html>
