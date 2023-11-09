@@ -1,1 +1,4 @@
-Message sent by server
+{
+    "status": 200,
+    "message": "message sent by server."
+}
