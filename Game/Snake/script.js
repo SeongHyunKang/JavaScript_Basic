@@ -71,6 +71,7 @@ $(document).ready(function() {
         }
         updateDirection();
     }
+    
     function checkCollision(head) {
         if (head.left < 0 || head.top < 0 || head.left >= gameWidth || head.top >= gameHeight) {
             return true;
