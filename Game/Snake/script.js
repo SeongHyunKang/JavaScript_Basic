@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    //#region variables
     const gameArea = $('#game-area');
     const gameWidth = gameArea.width();
     const gameHeight = gameArea.height();
@@ -14,6 +15,8 @@ $(document).ready(function() {
     let timeSurvived = 0;
     let gameStarted = false;
     let isGameOver = false;
+    let bestScore = 0;
+    //#endregion
 
     function placeFood() {
         let foodPlaced = false;
@@ -46,7 +49,7 @@ $(document).ready(function() {
 
     function moveSnake() {
         if (isGameOver) {
-            return; // Stop the snake from moving if the game is over
+            return;
         }
     
         const newHead = { top: snake[0].top + (direction.y * snakeSize), left: snake[0].left + (direction.x * snakeSize) };
@@ -99,12 +102,6 @@ $(document).ready(function() {
         drawSnake();
     }
 
-    function showGameOverModal() {
-        $('#final-score').text(score);
-        $('#game-over-modal').fadeIn();
-        isGameOver = true;
-    }
-
     function hideGameOverModal() {
         $('#game-over-modal').fadeOut();
         isGameOver = false;
@@ -116,6 +113,18 @@ $(document).ready(function() {
             newDirection = null;
             directionChanged = false;
         }
+    }
+
+    function showGameOverModal() {
+        if (score > bestScore) {
+            bestScore = score;
+        }
+    
+        $('#best-score').text(bestScore);
+        $('#final-score').text(score);
+    
+        $('#game-over-modal').fadeIn();
+        isGameOver = true;
     }
 
     $(document).keydown(function(e) {
