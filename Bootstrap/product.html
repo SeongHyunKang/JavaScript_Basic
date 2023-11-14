@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>상품 목록</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa; /* Assuming this is the background color */
+      margin-top: 20px;
+    }
+    .navbar {
+      background-color: #000;
+      height: 50px;
+    }
+    .navbar-brand {
+      color: #fff;
+      margin-left: 20px;
+    }
+    .product-header {
+      background-color: #e9ecef;
+      color: #343a40;
+      padding: 20px;
+      font-size: 24px;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+    .card {
+      border: none;
+      margin-bottom: 20px;
+    }
+    .card-body {
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,.2);
+    }
+    .card-title {
+      font-size: 20px;
+      color: #000;
+    }
+    .card-text {
+      color: #666;
+      margin-bottom: 20px;
+    }
+    .price {
+      font-size: 24px;
+      color: #000;
+    }
+    .footer {
+      border-top: 1px solid rgba(0,0,0,.1);
+      padding-top: 20px;
+      padding-bottom: 20px;
+      text-align: center;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a class="navbar-brand" href="#">Home</a>
+  </nav>
+
+  <div class="container">
+    <div class="product-header">
+      상품목록
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">iPhone 6s</h5>
+            <p class="card-text">4.7-inch, 1334X750 Renina HD display,<br>8-megapixel iSight Camera</p>
+            <p class="price">800000원</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">LG PC 그램</h5>
+            <p class="card-text">13.3-inch, IPS LED display, 5rd Generation Intel Core processors</p>
+            <p class="price">1500000원</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Galaxy Tab S</h5>
+            <p class="card-text">212.8*125.6*6.6mm, Super AMOLED display,<br>Octa-Core processor</p>
+            <p class="price">900000원</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    © WebMarket
+  </footer>
+
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+
+</body>
+</html>
